@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout - ShopEasy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Checkout</h1>
+  </header>
+
+  <main style="padding: 2rem;">
+    <form id="checkout-form">
+      <h2>Shipping Information</h2>
+      <input type="text" placeholder="Full Name" required><br><br>
+      <input type="email" placeholder="Email" required><br><br>
+      <input type="text" placeholder="Address" required><br><br>
+
+      <h2>Payment</h2>
+      <select required>
+        <option value="">Select Payment Method</option>
+        <option>Credit Card</option>
+        <option>PayPal</option>
+        <option>Cash on Delivery</option>
+      </select><br><br>
+
+      <button type="submit">Place Order</button>
+    </form>
+    <p id="confirmation" style="color: green;"></p>
+  </main>
+
+  <script>
+    document.getElementById('checkout-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      localStorage.removeItem('cart');
+      document.getElementById('confirmation').textContent = 'Order placed successfully!';
+    });
+  </script>
+</body>
+</html>
